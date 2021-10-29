@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      position: relative;
+    }
+
+    header {
+    width: 100%;
+    background-color: white;
+    box-shadow: inset 0 0 30px 13px lightskyblue;
+    align-items: center;
+}
+
+    .head {
+      align-items: center;
+    }
+
+    .cidco {
+      display: flex;
+      font-size: 40px;
+      color: black;
+    }
+    
+    .cidco i{
+      font-size: 50px;
+      animation: cidco 1s ease-in-out ;
+    }
+    .cidco h1{
+      animation: letter 0.8s ease-in-out ;
+      animation-delay: 1s;
+      margin-right: 2px;
+    }
+
+    .btn button {
+      margin: 0 10px;
+    }
+
+    .btn button:hover {
+      background-color: #0d5bfd;
+    }
+
+    /* 
+    .imgbg {
+      width: 100%;
+      height: 650px;
+      background-image: url(https://img.freepik.com/free-vector/cartoon-city-landscape_52683-69416.jpg?size=626&ext=jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    } */
+    .main-sec {
+      position: relative;
+      padding-top: 100px;
+    }
+
+    .main-sec::before {
+      content: "";
+      width: 100%;
+      position: absolute;
+      height: 650px;
+      z-index: -1;
+      background-image: url(https://img.freepik.com/free-vector/cartoon-city-landscape_52683-69416.jpg?size=626&ext=jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      top: 0;
+      left: 0;
+    }
+
+    .form {
+      max-width: 601px;
+      margin: 0 auto;
+      background-color: #fff;
+      box-shadow: 0 0 60px rgba(186, 229, 255, 0.795);
+    }
+
+    .form h1 {
+      width: 100%;
+      text-align: center;
+      padding: 10px 0px;
+      box-shadow: inset 0 0 35px 22px lightskyblue;
+    }
+
+    .number input::-webkit-inner-spin-button {
+      display: none;
+    }
+
+    span{
+      font-size: 18px;
+      color: red;
+      font-weight: 600;
+    }
+
+    .right {
+      border: 1px solid transparent;
+      width: 60%;
+      z-index: 18;
+      margin: 0 auto;
+      display: none;
+      padding: 10px 10px;
+      box-shadow: inset 0 0 120px 60px rgb(0 157 255);
+      top: 50%;
+      left: 20%;
+      position: absolute;
+      background-color: #bbe4ff;
+    }
+
+    .align h1 {
+      text-align: center;
+      animation: result 3s infinite ease-in-out;
+      margin-right: 10px;
+    }
+
+    .align-head{
+    display: flex;
+    justify-content: center;
+}
+
+    .flex {
+      display: flex;
+    }
+
+    .box{
+    width: 100%;
+    text-align: center;
+    border: 2px solid #4ab9ff;
+    border-radius: 15px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    }
+
+    .box hr{
+      width: 100%;
+      height: 4px;
+      background-color: #4ab9ff;
+      box-shadow: 0px 5px 12px 5px #009dff94;
+    }
+    
+    .flex p {
+      font-size: 20px;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .box span {
+      margin-top: -10px;
+      display: inline-block;
+      padding-left: 10px;
+      font-size: 20px;
+      font-weight: 600;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      color: #000f;
+    }
+
+    
+    .box p{
+      animation: left 0.8s ease-in-out;
+    }
+
+    .box span{
+      animation: right 0.8s ease-in-out;
+    }
+    
+    #fullnameresult,
+    #genderresult {
+      text-transform: capitalize;
+    }
+
+    .closebtn {
+      float: right;
+      padding: 5px;
+      border-radius: 50%;
+      height: 40px;
+      width: 40px;
+      border: none;
+      background-color: #feffff;
+      font-weight: 700;
+      color: #4ab9ff;
+    }
+
+    @keyframes cidco {
+
+     0%{
+        transform: translateY(-1000px);
+      }
+      100%{
+        transform: translate(0px);
+      }
+    }
+    @keyframes letter {
+
+     0%{
+        transform: translateX(0px);
+      }
+      10%{
+        transform: translateX(50px);
+      }
+      100%{
+        transform: translateX(0px);
+      }
+    }
+    @keyframes result {
+      0%{
+        transform: rotate(-45deg);
+      }
+      10%{
+        transform: rotate(45deg);
+      }
+      20%{
+        transform: rotate(45deg);
+      }
+      30%{
+        transform: rotate(-45deg);
+      }
+      40%{
+        transform: rotate(-45deg);
+      }
+      50%{
+        transform: rotate(45deg);
+      }
+      60%{
+        transform: rotate(45deg);
+      }
+      70%{
+        transform: rotate(-45deg);
+      }
+      80%{
+        transform: rotate(-45deg);
+      }
+      100%{
+        transform: rotate(45deg);
+      }
+    }
+    @keyframes left {
+      0%{
+        transform: translate(-300px);
+        visibility: hidden;
+      }
+      100%{
+        transform: translate(0px);
+      }
+    }
+    @keyframes right {
+      0%{
+        transform: translate(300px);
+        visibility: hidden;
+      }
+      100%{
+        transform: translate(0px);
+        
+      }
+    }
+    
+    @media (max-width: 768px) {
+
+      .main-sec::before {
+        width: 100%;
+        height: 688px;
+        background-image: url(https://img.freepik.com/free-vector/cartoon-city-landscape_52683-69416.jpg?size=626&ext=jpg);
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      .form {
+        width: 100%;
+      }
+
+      .right {
+        width: 100%;
+        position: static;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .main-sec::before {
+        width: 100%;
+        height: 379px;
+        background-image: url(https://img.freepik.com/free-vector/cartoon-city-landscape_52683-69416.jpg?size=626&ext=jpg);
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container-md">
+      <div class="head row py-1 justify-content-between ">
+        <div class="col-auto ">
+          <div class="cidco"><i class="fas fa-city" style="margin-right: 8px;"></i>
+            <h1>CIDCO</h1>
+          </div>
+        </div>
+        <div class="col-auto btn ">
+          <button type="button" class="btn btn-primary"><i class="far fa-comments"></i> Support</button>
+          <button type="button" class="btn btn-primary"><i class="fas fa-language"></i> English</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- <section>
+    <div class="imgbg"></div>
+  </section> -->
+  <section class="main-sec">
+
+    <form onsubmit="return result(event)" class="form px-4 py-5  g-4" id="none">
+      <div class="row g-4">
+        <div class="col-md-12">
+          <h1>Login</h1>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">First Name</label> <br>
+          <input type="text" class="form-control" id="firstname" placeholder="First Name">
+          <span id="firstspan"></span>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Middle Name</label>
+          <input type="text" class="form-control" id="middlename" placeholder="Middle Name">
+          <span id="middlespan"></span>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="lastname" placeholder="Last Name">
+          <span id="lastspan"></span>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Gender</label>
+          <select class="form-select form-select" id="gender">
+            <option selected value="" disabled>select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="others">Others</option>
+          </select>
+          <span id="genderspan"></span>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Date Of Birth</label>
+          <input type="date" class="form-control" id="inputdate">
+          <span id="datespan"></span>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Website</label>
+          <input type="text" class="form-control" placeholder="Website URL" id="website">
+          <span id="webspan"></span>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" placeholder="Atleast 8 characters required" id="password">
+          <span id="passwordspan"></span>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="cpassword">
+          <span id="cpasswordspan"></span>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Email Address</label>
+          <input type="text" class="form-control" id="email" placeholder="name@example.com">
+          <span id="emailspan"></span>
+        </div>
+        <div class="number col-md-6">
+          <label class="form-label">Mobile Number</label>
+          <input type="text" maxlength="10" placeholder="Mobile Number" class="form-control" id="number"
+            oninput="this.value = this.value.replace(/[^0-9,]/g, '').replace(/(\..*)\./g, '$1');">
+          <span id="numberspan"></span>
+        </div>
+        <div class="col-12 pt-4">
+          <div class="form-check">
+            <p> Terms & Conditions, <br>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur porro neque vero placeat
+              voluptatum, architecto sint sequi tenetur facere error eum quae mollitia dolore, rem eius laboriosam
+              molestias officiis a? Similique blanditiis minus quia maiores, nulla deleniti animi corporis ipsum.
+            </p>
+            <input class="form-check-input" type="checkbox" id="terms" name="checkbox">
+            <label class="form-check-label" for="terms">
+              Agree to terms and conditions
+            </label><br>
+            <span id="termspan"></span>
+          </div>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+      </div>
+    </form>
+
+
+    <div class="right" id="block">
+      <button type="button" onclick="closeViewSsection()" class="closebtn">X</button>
+      <div class="align">
+        <div class="align-head">
+        <h1>R</h1>
+        <h1>E</h1>
+        <h1>S</h1>
+        <h1>U</h1>
+        <h1>L</h1>
+        <h1>T</h1>
+      </div>
+      <div class="row py-3 g-2">
+        <div class="col-12 flex">
+          <div class="box">
+           <p class="slide-left">Name </p> <hr> <span class="slide-right" id="fullnameresult"></span>
+          </div>
+        </div>
+        <div class="col-md-6 flex">
+          <div class="box">
+          <p>Number</p> <hr> <span id="numberresult"></span>
+        </div>
+        </div>
+        <div class="col-md-6 flex">
+          <div class="box">
+          <p>Email </p> <hr> <span id="emailresult"></span>
+        </div>
+        </div>
+        <div class="col-md-6 flex">
+          <div class="box">
+          <p>Gender</p><hr> <span id="genderresult"></span>
+        </div>
+        </div>
+        <div class="col-md-6 flex">
+          <div class="box">
+          <p>Date of Birth</p> <hr><span id="dobresult"></span>
+        </div>
+        </div>
+        <div class="col-md-6 flex">
+          <div class="box">
+          <p>Website</p><hr> <span id="websiteresult"></span>
+        </div>
+        </div>
+        <div class="col-md-6 flex">
+          <div class="box">
+          <p>Password</p><hr> <span id="passwordresult"></span>
+        </div>
+        </div> <br>
+        <div class="col-12 flex">
+          <div class="box">
+            <p class="slide-left">Terms & Conditions</p><hr>
+          <span class="slide-right" id="checkboxresult">Agreed</span>
+        </div>
+        </div>
+        <p style="font-weight:600">YOUR RESPONSE WAS BEEN SUBMITTED  <i class="fas fa-user-check"></i> </p> 
+      </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    function result(event) {
+      event.preventDefault();
+      var firstname = document.getElementById("firstname").value;
+      var middlename = document.getElementById("middlename").value;
+      var lastname = document.getElementById("lastname").value;
+      var gender = document.getElementById("gender").value;
+      var birthDate = document.getElementById("inputdate").value;
+      var website = document.getElementById("website").value;
+      var password = document.getElementById("password").value;
+      var cpassword = document.getElementById("cpassword").value;
+      var email = document.getElementById("email").value;
+      var number = document.getElementById("number").value;
+
+
+      var name_regex = /^[a-zA-Z^S]{2,30}$/;;
+      var urlpattern =
+        /^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/;
+      var emailtest = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      var passwordtest = /^[a-zA-Z0-9!@#$%^&*]{8,20}$/;
+      var numbertest = /^[6789][0-9]{9}/;
+      var checkbox = document.querySelector('input[name="checkbox"]:checked');
+
+      if (firstname && middlename && lastname && email && website && password && cpassword &&
+        number && checkbox && gender) {
+        let ifAllInputHaveValidVal = true;
+        if (name_regex.test(firstname)) {
+          document.getElementById("firstspan").innerHTML = "";
+        } else {
+          ifAllInputHaveValidVal = false;
+          document.getElementById("firstspan").innerHTML = "firstname is Invalid";
+        }
+        if (name_regex.test(middlename)) {
+          document.getElementById("middlespan").innerHTML = "";
+        } else {
+          ifAllInputHaveValidVal = false;
+          document.getElementById("middlespan").innerHTML = "middlename is Invalid";
+        }
+
+        if (name_regex.test(lastname)) {
+          document.getElementById("lastspan").innerHTML = "";
+        } else {
+          ifAllInputHaveValidVal = false;
+          document.getElementById("lastspan").innerHTML = "lastname is Invalid";
+        }
+
+        if (urlpattern.test(website)) {
+          document.getElementById("webspan").innerHTML = "";
+        } else {
+          ifAllInputHaveValidVal = false;
+          document.getElementById("webspan").innerHTML = "URL is Invalid";
+        }
+
+        if (passwordtest.test(password)) {
+          document.getElementById("passwordspan").innerHTML = "";
+        } else {
+          ifAllInputHaveValidVal = false;
+          document.getElementById("passwordspan").innerHTML = "password is Invalid";
+        }
+
+        if (cpassword == password) {
+          document.getElementById("cpasswordspan").innerHTML = "";
+        } else {
+          ifAllInputHaveValidVal = false;
+          document.getElementById("cpasswordspan").innerHTML = "password is not Matching";
+        }
+
+        if (emailtest.test(email)) {
+          document.getElementById("emailspan").innerHTML = "";
+        } else {
+          ifAllInputHaveValidVal = false;
+          document.getElementById("emailspan").innerHTML = "email is Invalid";
+        }
+
+        if (numbertest.test(number)) {
+          document.getElementById("numberspan").innerHTML = "";
+        } else {
+          ifAllInputHaveValidVal = false;
+          document.getElementById("numberspan").innerHTML = "Mobile number is Invalid";
+        }
+
+        var userYob = new Date(birthDate).getFullYear();
+        var currentYear = new Date().getFullYear();
+        var userdob = currentYear - userYob;
+
+        if (userdob >= 18) {
+          alert = ("valid Age");
+        } else {
+          document.getElementById("datespan").innerHTML = "Age Must be above 18 ";
+          ifAllInputHaveValidVal = false;
+        }
+
+        if (ifAllInputHaveValidVal) {
+          let send_data = {
+            "firstName": firstname,
+            "middleName": middlename,
+            "lastName": lastname,
+            "gender": gender,
+            "dob": birthDate,
+            "url": website,
+            "email": email,
+            "password": password,
+            "phoneNo": number
+          };
+          showMyViewContainer(send_data);
+        }
+      } else {
+        if (!firstname) {
+          document.getElementById("firstspan").innerHTML = "First Name is required";
+        }
+        if (!middlename) {
+          document.getElementById("middlespan").innerHTML = "Middle Name is required";
+        }
+        if (!lastname) {
+          document.getElementById("lastspan").innerHTML = "Last Name is required";
+        }
+        if (!gender) {
+          document.getElementById("genderspan").innerHTML = "Select your gender";
+        }
+        if (!birthDate) {
+          document.getElementById("datespan").innerHTML = "Date is required";
+        }
+        if (!website) {
+          document.getElementById("webspan").innerHTML = "Website URL is required";
+        }
+        if (!password) {
+          document.getElementById("passwordspan").innerHTML = "Password is required";
+        }
+        if (!cpassword) {
+          document.getElementById("cpasswordspan").innerHTML = "Confirm Password is required";
+        }
+        if (!email) {
+          document.getElementById("emailspan").innerHTML = "Email is required";
+        }
+        if (!number) {
+          document.getElementById("numberspan").innerHTML = "Mobile Number is required";
+        }
+        if (!checkbox) {
+          document.getElementById("termspan").innerHTML = "Please select the above checkbox";
+        }
+      }
+    }
+
+    function showMyViewContainer(get_data) {
+      console.log("get_data", get_data);
+      document.getElementById("none").style.display = "none";
+      document.getElementById("block").style.display = "block";
+      document.getElementById("fullnameresult").innerHTML = get_data.firstName + " " + get_data.middleName + " " +
+        get_data.lastName;
+      document.getElementById("genderresult").innerHTML = get_data.gender;
+      document.getElementById("dobresult").innerHTML = get_data.dob;
+      document.getElementById("websiteresult").innerHTML = get_data.url;
+      document.getElementById("emailresult").innerHTML = get_data.email;
+      document.getElementById("passwordresult").innerHTML = get_data.password;
+      document.getElementById("numberresult").innerHTML = get_data.phoneNo;
+    }
+
+    function closeViewSsection() {
+      document.getElementById("block").style.display = "none";
+      document.getElementById("none").style.display = "block";
+    }
+  </script>
+</body>
+
+</html>
